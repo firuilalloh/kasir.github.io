@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/output.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="bg-gray-800">
+        <div class="container px-6 py-3 mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a class="mr-4 text-lg font-semibold text-white" href="../index.html">KASIR APP</a>
+                    <ul class="flex space-x-4">
+                        <li><a class="text-gray-300 hover:text-white" href="/views/daftarBarang.html">Daftar Barang</a>
+                        </li>
+                        <li><a class="text-gray-300 hover:text-white" href="/views/stokMasuk.html">Stok Masuk</a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="/views/stokKeluar.html">Stok Keluar</a></li>
+                        <li><a class="text-gray-300 hover:text-white" href="/views/Transaksi.html">Transaksi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-4" style="min-height: 504px;">
+        <div>
+            <div class="flex justify-between">
+                <h2 class="mt-3 mb-3 text-xl font-bold">Daftar Produk</h2>
+                <button class="px-4 py-2 my-2 font-semibold text-white bg-green-500 rounded-lg clickAdd">+ Add
+                    Produk</button>
+            </div>
+            <table class="w-full border border-gray-400">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 border border-gray-400">No.</th>
+                        <th class="px-4 py-2 border border-gray-400">Nama Produk</th>
+                        <th class="px-4 py-2 border border-gray-400">Harga</th>
+                        <th class="px-4 py-2 border border-gray-400">Stock</th>
+                        <th class="px-4 py-2 border border-gray-400">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="px-4 py-2 border border-gray-400">1</th>
+                        <th class="px-4 py-2 border border-gray-400">Samsul Memang galak</th>
+                        <th class="px-4 py-2 border border-gray-400">2.000.000</th>
+                        <th class="px-4 py-2 border border-gray-400">10</th>
+                        <th class="px-4 py-2 border border-gray-400">
+                            <button class="px-4 py-2 mr-8 bg-yellow-400 rounded-lg">Edit</button>
+                            <button class="px-4 py-2 text-white bg-red-500 rounded-lg ">Delete</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- modal -->
+
+    <div id="ModalAddProduct" class="fixed inset-0 items-center justify-center hidden pt-32 bg-black modal pl-80 bg-opacity-20">
+        <div class="w-2/3 p-6 bg-white rounded-lg shadow-lg modal-content">
+            <!-- Tombol untuk menutup modal -->
+            <h2 class="mb-4 text-xl font-semibold">Tambah Produk</h2>
+            <form id="addProductForm" class="space-y-4">
+                <div class="flex flex-col">
+                    <label for="productName" class="font-semibold">Nama Produk:</label>
+                    <input type="text" id="productName" name="productName" class="p-2 border rounded-lg" required>
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="productPrice" class="font-semibold">Harga:</label>
+                    <input type="text" id="productPrice" name="productPrice" class="p-2 border rounded-lg" required>
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="productStock" class="font-semibold">Stock:</label>
+                    <input type="text" id="productStock" name="productStock" class="p-2 border rounded-lg" required>
+                </div>
+                <div class="flex justify-between">
+                    <button type="submit"
+                        class="px-4 py-2 font-semibold text-white bg-green-500 rounded-lg">Simpan</button>
+                    <button class="px-4 py-2 font-semibold text-white bg-red-500 rounded-lg close">Cencel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <footer class="p-4 text-white bg-gray-800">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    const modal = document.getElementById('ModalAddProduct');
+    const btn = document.querySelector('.clickAdd');
+    const span = document.getElementsByClassName('close')[0];
+
+    btn.onclick = function () {
+        modal.style.display = 'block';
+    }
+
+    span.onclick = function () {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+</html>
